@@ -1,4 +1,4 @@
-baseURL = "https://example.edu"
+baseURL = "https://alirezaomidi.github.io"
 languageCode = "en-us"
 title = "Alireza Omidi"
 theme = "avicenna"
@@ -9,7 +9,7 @@ timeout=3000
   subtitle= "M.Sc. Student"
   interests="Deep Learning, Computational Biology, Meta Learning, Interpretable ML"
   cv_name= "AlirezaOmidiCV.pdf"
-  blog="http://myblog.edu"
+  #blog=""
 
 [[params.affilation]]
   name = "Sharif University of Technology"
