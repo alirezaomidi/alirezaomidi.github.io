@@ -1,0 +1,66 @@
+baseURL = "https://example.edu"
+languageCode = "en-us"
+title = "Alireza Omidi"
+theme = "avicenna"
+googleAnalytics = "UA-163977831-1"
+timeout=3000
+
+[params]
+  subtitle= "M.Sc. Student"
+  interests="Deep Learning, Computational Biology, Meta Learning, Interpretable ML"
+  cv_name= "AlirezaOmidiCV.pdf"
+  blog="http://myblog.edu"
+
+[[params.affilation]]
+  name = "Sharif University of Technology"
+  position = "M.Sc. Student"
+  contact = "aomidi[at]cs[dot]sharif[dot]edu"
+
+[[params.social]]
+  name = "Google Scholar"
+  icon = "book-open"
+  url = "https://scholar.google.com/citations?user=AObjzWEAAAAJ&hl=en"
+
+[[params.social]]
+  name = "GitHub"
+  icon = "github"
+  url = "https://github.com/alirezaomidi"
+
+[[params.social]]
+  name = "Twitter"
+  icon = "twitter"
+  url = "https://twitter.com/alirezaomidi_"
+
+[[params.social]]
+  name = "LinkedIn"
+  icon = "linkedin"
+  url = "https://linkedin.com/in/aomidi/"
+
+
+[[params.introduction.paragraph]]
+  text="""I am an M.Sc. student at Sharif University of Technology, Tehran, Iran. I am broadly interested in Machine Learning & Deep Learning.
+  Currently, I am a research assistant at Sharifi Lab (Deep Computational Biology Lab).
+   """
+[[params.introduction.paragraph]]
+  text="""Previously, I recieved my B.Sc. in computer software engineering from Isfahan University of Technology, Isfahan, Iran.
+    My bachelor thesis was about applying clustering methods on RNA expressions derived from cancer tumors and finding cell types.
+  """
+
+
+#[[params.projects]]
+#	[[params.projects.project]]
+#		name = "Learning Cancer Progression Network from Mutation Allele Frequencies"
+#		description  = ""
+#		project_page = "https://icml-compbio.github.io/2020/papers/WCBICML2020_paper_36.pdf"
+#		code_link = "https://github.com/alirezaomidi/cancerdag"
+#		blog_link = ""
+
+[[params.publications]]
+  year="2020"
+
+  [[params.publications.paper]]
+    name = "Learning Cancer Progression Network from Mutation Allele Frequencies"
+    authors = "Mohammad Sadegh Akhondzadeh, __Alireza Omidi__, Zeinab Maleki, Kevin Coombes, Amanda E. Toland, Amir Asiaee"
+    dest  = "ICML Workshop on Computational Biology"
+    link = "https://icml-compbio.github.io/2020/papers/WCBICML2020_paper_36.pdf"
+		code_link = "https://github.com/alirezaomidi/cancerdag"
