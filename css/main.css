@@ -148,6 +148,10 @@ ul.flat li {
   margin-left: 0;
 }
 
+ul.flat a {
+  margin: 0 4px 0;
+}
+
 .prevent-collapse {
   min-height: 0.1rem;
 }
@@ -221,6 +225,7 @@ ul {
 
 .header nav {
   margin-top: 20px;
+  font-size: 20px;
   /* border-top: 1px solid #f4f4f4; */
 }
 
@@ -270,7 +275,11 @@ ul {
 }
 
 .header .site-affilation nav ul svg {
-  max-height: 15px;
+  max-height: 25px;
+}
+
+.social {
+  margin: 0 4px 0;
 }
 
 /* header for projects */
@@ -316,7 +325,7 @@ ul {
 }
 
 .year {
-  font-size: 20px;
+  margin-top: -.6em;
   margin-bottom: -.6em;
 }
 
@@ -336,8 +345,7 @@ ul {
 
 .blog_cv {
     font-family: "Ubuntu Mono";
-    font-size: 17px;
-    /* margin: 0em .9em 0em; */
+    font-size: 20px;
 }
 
 .project_description {
@@ -403,8 +411,6 @@ ul {
 .tag-cloud a {
   margin-right: 15px;
 }
-
-
 
 @media (max-width: 767px) {
   body {
