@@ -27,7 +27,7 @@ export default function Page() {
         </p>
         <p>
           My research focuses on developing generative models for protein design. Specifically, I'm interested in using diffusion models and flow matching to design mini-protein binders.
-          I'm also interested in using large language models to enhanceprotein design and predict protein-protein interaction prediction.
+          I'm also interested in using large language models to enhance protein design and predict protein-protein interactions.
         </p>
 
         <div className="my-8">
