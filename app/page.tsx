@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFilePdf } from "react-icons/fa6";
+import { FaFilePdf, FaXTwitter, FaGithub, FaLinkedinIn, FaGraduationCap } from "react-icons/fa6";
+import { TbMailFilled } from "react-icons/tb";
 import { socialLinks } from "./config";
 import { education } from "./education-data";
 import { publications } from "./publications/publication-data";
@@ -33,7 +34,7 @@ export default function Page() {
           I'm also interested in using large language models to enhance protein design and predict protein-protein interactions.
         </p>
 
-        <div className="my-8">
+        <div className="my-8 flex flex-wrap gap-3">
           <a
             href="/CV.pdf"
             target="_blank"
@@ -42,6 +43,15 @@ export default function Page() {
           >
             <FaFilePdf />
             <span>Download CV</span>
+          </a>
+          <a
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
+          >
+            <FaLinkedinIn />
+            <span>LinkedIn</span>
           </a>
         </div>
 
