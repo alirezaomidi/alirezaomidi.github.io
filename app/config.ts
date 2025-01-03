@@ -3,6 +3,7 @@ export const metaData = {
   title: "Alireza Omidi",
   name: "Alireza Omidi",
   description: "Ph.D. student in Bioinformatics at UBC, focusing on protein design and AI applications in drug discovery.",
+  ogImage: "/opengraph-image.png"
 };
 
 export const socialLinks = {
