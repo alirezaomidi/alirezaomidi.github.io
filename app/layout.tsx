@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
       <head />
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
+      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-0 lg:mt-0 mb-0 lg:mb-0">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

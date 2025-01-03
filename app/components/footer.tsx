@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { metaData, socialLinks } from "app/config";
+import { Globe } from "./ui/globe";
 
 const YEAR = new Date().getFullYear();
 
@@ -36,25 +37,37 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
-      <time>© {YEAR}</time>{" "}
-      <a
-        className="no-underline"
-        href={socialLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {metaData.title}
-      </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
+    <div className="relative mt-20">
+      <small className="block text-[#1C1C1C] dark:text-[#D4D4D4]">
+        <time>© {YEAR}</time>{" "}
+        <a
+          className="no-underline"
+          href={socialLinks.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {metaData.title}
+        </a>
+        <style jsx>{`
+          @media screen and (max-width: 480px) {
+            article {
+              padding-top: 2rem;
+              padding-bottom: 4rem;
+            }
           }
-        }
-      `}</style>
-      <SocialLinks />
-    </small>
+        `}</style>
+        <SocialLinks />
+      </small>
+      <div className="relative mt-16">
+        <div className="relative h-[150px] sm:h-[200px] md:h-[300px] w-full max-w-3xl mx-auto overflow-hidden">
+          <div className="flex justify-center">
+            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-lg font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+              Tiny footprints, big dreams
+            </span>
+          </div>
+          <Globe className="opacity-70" />
+        </div>
+      </div>
+    </div>
   );
 }
