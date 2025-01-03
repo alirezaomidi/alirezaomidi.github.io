@@ -27,9 +27,9 @@ function SocialLinks() {
       <SocialLink href={socialLinks.scholar} icon={FaGraduationCap} />
       <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
       <SocialLink href={socialLinks.github} icon={FaGithub} />
-      <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
+      <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
     </div>
   );
 }

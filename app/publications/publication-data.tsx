@@ -17,7 +17,7 @@ export const publications: Publication[] = [
     title: "AlphaFold-Multimer accurately captures interactions and dynamics of intrinsically disordered protein regions",
     year: 2024,
     authors: "Alireza Omidi, Mads Harder Møller, Nawar Malhis, Jennifer M. Bui, Jörg Gsponer",
-    journal: "Proceedings of the National Academy of Sciences",
+    journal: "Proceedings of the National Academy of Sciences (PNAS)",
     url: "https://doi.org/10.1073/pnas.2406407121",
     doi: "10.1073/pnas.2406407121",
     figure: {

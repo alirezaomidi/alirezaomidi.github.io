@@ -41,13 +41,14 @@ export function PublicationList({ publications, showImages = true }: Publication
                             </div>
                             {showImages && pub.figure && (
                                 <div className="mt-4">
-                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-white">
+                                    <div className="relative w-full overflow-hidden rounded-lg bg-white p-0">
                                         <Image
                                             src={pub.figure.url}
                                             alt={`Figure from ${pub.title}`}
-                                            fill
-                                            className="object-contain"
-                                            sizes="(min-width: 768px) 100vw, 50vw"
+                                            width={800}
+                                            height={400}
+                                            className="w-full h-auto object-contain"
+                                            unoptimized={!pub.figure.isLocal}
                                         />
                                     </div>
                                 </div>
