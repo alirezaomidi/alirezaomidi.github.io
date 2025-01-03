@@ -9,6 +9,7 @@ export interface Publication {
     url: string;
     isLocal?: boolean;
   };
+  selected?: boolean;
 }
 
 export const publications: Publication[] = [
@@ -22,7 +23,8 @@ export const publications: Publication[] = [
     figure: {
       url: "/photos/publications/pnas.2406407121fig02.jpg",
       isLocal: true
-    }
+    },
+    selected: true
   },
   {
     title: "Multimodal weakly supervised learning to identify disease-specific changes in single-cell atlases",
@@ -33,7 +35,8 @@ export const publications: Publication[] = [
     doi: "10.1101/2024.07.29.605625",
     figure: {
       url: "https://www.biorxiv.org/content/biorxiv/early/2024/07/29/2024.07.29.605625/F1.large.jpg"
-    }
+    },
+    selected: true
   },
   {
     title: "Learning Cancer Progression Network from Mutation Allele Frequencies",

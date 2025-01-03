@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFileArrowDown } from "react-icons/fa6";
+import { FaFilePdf } from "react-icons/fa6";
 import { socialLinks } from "./config";
 import { education } from "./education-data";
 import { publications } from "./publications/publication-data";
+import { PublicationList } from "./components/publication-list";
 
 export default function Page() {
+  const selectedPublications = publications.filter(pub => pub.selected);
+
   return (
     <section>
       <a href={socialLinks.github} target="_blank">
@@ -14,8 +17,8 @@ export default function Page() {
           alt="Profile photo"
           className="rounded-full block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5"
           unoptimized
-          width={160}
-          height={160}
+          width={200}
+          height={200}
           priority
         />
       </a>
@@ -37,7 +40,7 @@ export default function Page() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
           >
-            <FaFileArrowDown />
+            <FaFilePdf />
             <span>Download CV</span>
           </a>
         </div>
@@ -66,40 +69,17 @@ export default function Page() {
         </div>
 
         <h2 className="font-medium text-2xl mb-8 tracking-tight mt-12">Selected Publications</h2>
-        <div className="space-y-8">
-          {publications.slice(0, 2).map((pub, index) => (
-            <div key={index} className="group">
-              <div className="flex flex-col">
-                <div className="w-full flex justify-between items-baseline">
-                  <a
-                    href={pub.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black dark:text-white font-medium tracking-tight hover:opacity-80 no-underline"
-                  >
-                    {pub.title}
-                  </a>
-                  <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                    {pub.year}
-                  </span>
-                </div>
-                <div className="text-neutral-600 dark:text-neutral-400 mt-1">
-                  {pub.authors}
-                </div>
-                <div className="text-neutral-600 dark:text-neutral-400 italic">
-                  {pub.journal}
-                </div>
-              </div>
-            </div>
-          ))}
-          <div className="mt-8">
-            <Link
-              href="/publications"
-              className="text-neutral-600 dark:text-neutral-400 hover:opacity-80 no-underline"
-            >
-              View All Publications →
-            </Link>
-          </div>
+      </div>
+
+      <div>
+        <PublicationList publications={selectedPublications} showImages={false} />
+        <div className="mt-8">
+          <Link
+            href="/publications"
+            className="text-neutral-600 dark:text-neutral-400 hover:opacity-80 no-underline"
+          >
+            View All Publications →
+          </Link>
         </div>
       </div>
     </section>
