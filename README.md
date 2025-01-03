@@ -20,7 +20,6 @@ Deploy your Nextfolio site with Vercel in minutes.
 - **Light and Dark Mode Toggle**: Switch between themes for better readability.
 - **Dynamic [OG Images](https://vercel.com/docs/functions/og-image-generation)**: Auto-generate Open Graph images for sharing.
 - **SEO Optimization**: Enhance search visibility with sitemap, robots.txt, and JSON-LD schema.
-- **Dynamic Feed Generation**: Automatic dynamic [RSS](https://nextfolio-template.vercel.app/rss.xml), [Atom](https://nextfolio-template.vercel.app/atom.xml), and [JSON](https://nextfolio-template.vercel.app/feed.json) feeds.
 - **[KaTeX](https://katex.org/) Integration**: Render mathematical expressions smoothly.
 - **Performance Tracking**: Monitor web performance with [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights).
 - **Interactive Embeds**: Easily embed interactive tweets and YouTube videos.
@@ -47,7 +46,7 @@ The server will be running at [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
-1. Update the site metadata and social links in `app/config.ts` to set up SEO, feeds, social links, and Open Graph settings.
+1. Update the site metadata and social links in `app/config.ts` to set up SEO, social links, and Open Graph settings.
 2. Update your routes in `app/sitemap.ts` for SEO optimization.
 3. Update your blog posts in the `/content` folder.
 
@@ -57,6 +56,6 @@ For more information about configuration, follow the instructions in the [Gettin
 
 Contributions are welcome! To get involved, just push your code to the repo. Whether you're enhancing existing features or adding new ones, your efforts are greatly appreciated!
 
-## Licence
+## License
 
 Nextfolio is open-source and released under the MIT License.

@@ -31,11 +31,11 @@ The server will be running at [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
-Customize your Nextfolio setup by updating your information to ensure proper SEO, feed generation, Open Graph integration, and other settings.
+Customize your Nextfolio setup by updating your information to ensure proper SEO, Open Graph integration, and other settings.
 
 ### Config.ts
 
-Update the site metadata and social links in the **app/config.ts** file. These constants are utilized across the site for SEO, feeds, social links, and Open Graph integration.
+Update the site metadata and social links in the **app/config.ts** file. These constants are utilized across the site for SEO, social links, and Open Graph integration.
 
 ```
 export const metaData = {
@@ -58,7 +58,7 @@ export const socialLinks = {
 
 ### Sitemap
 
-Adjust the routes to match your portfolio’s navigation in **app/sitemap.ts** file for SEO optimization:
+Adjust the routes to match your portfolio's navigation in **app/sitemap.ts** file for SEO optimization:
 
 ```
 let routes = ["", "blog", "projects", "photos"].map((route) => ({ // Update routes according to your navbar
@@ -83,4 +83,4 @@ Nextfolio uses [Vercel Web Analytics](https://vercel.com/docs/analytics/quicksta
 
 You're all set! Update your blog posts in the **/content** folder, add your project data in **app/project/projectdata.tsx**, and update your images in **app/photos/page.tsx**.
 
-Your portfolio is equipped with SEO, [RSS](/rss.xml), [Atom](/atom.xml), and [JSON](/feed.json) feeds, as well as analytics. Nextfolio is fully customizable, allowing you to add features as needed.
+Your portfolio is equipped with SEO and analytics. Nextfolio is fully customizable, allowing you to add features as needed.
