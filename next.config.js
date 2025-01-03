@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/alirezaomidi',
+  images: {
+    unoptimized: true,
+    domains: ['www.pnas.org', 'www.biorxiv.org'],
+  },
   reactStrictMode: true,
   swcMinify: true,
   async rewrites() {

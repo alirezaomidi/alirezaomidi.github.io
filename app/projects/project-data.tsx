@@ -7,24 +7,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Project One",
+    title: "Protein-Protein Interaction Prediction",
     year: 2023,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+    description: "Working on the prediction of protein-protein interactions (PPI) involving cancer-driving genes using advanced AI models.",
+    url: "https://github.com/alirezaomidi",
   },
   {
-    title: "Project Two",
+    title: "Voltage-gated Calcium Channel Binders",
     year: 2022,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+    description: "Designing high-affinity binders for voltage-gated calcium channels using protein diffusion models (RFdiffusion) and a pipeline of AlphaFold-Multimer and ProteinMPNN.",
+    url: "https://github.com/alirezaomidi",
   },
   {
-    title: "Project Three",
+    title: "Negar ASR System",
     year: 2021,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis dolorem rem praesentium dicta labore, at laudantium quisquam.",
-    url: "https://example.com/",
+    description: "Developed Negar, a novel Deep Neural Network based Automatic Speech Recognition service to recognize Persian speech at Cafe Bazaar AI.",
+    url: "https://github.com/alirezaomidi",
+  },
+  {
+    title: "Chatterbox TTS",
+    year: 2020,
+    description: "Developed Chatterbox, a Deep Learning based Text-to-Speech service for converting Persian text into natural-sounding speech.",
+    url: "https://github.com/alirezaomidi",
   },
 ];
