@@ -1,5 +1,5 @@
 export const metaData = {
-  baseUrl: "https://alirezaomidi.github.io/alirezaomidi.github.io",
+  baseUrl: "https://alirezaomidi.github.io",
   title: "Alireza Omidi",
   name: "Alireza Omidi",
   description: "Ph.D. student in Bioinformatics at UBC, focusing on protein design and AI applications in drug discovery.",
@@ -12,4 +12,5 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/alirezaomidi",
   email: "mailto:aomidi@student.ubc.ca",
   instagram: "https://www.instagram.com/alireza.o.photos",
+  scholar: "https://scholar.google.com/citations?user=AObjzWEAAAAJ&hl=en"
 };

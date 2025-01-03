@@ -1,7 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { FaGraduationCap } from "react-icons/fa6";
 import { publications } from "./publication-data";
+import { socialLinks } from "app/config";
 
 export const metadata: Metadata = {
     title: "Publications",
@@ -11,7 +13,18 @@ export const metadata: Metadata = {
 export default function Publications() {
     return (
         <section>
-            <h1 className="mb-8 text-2xl font-medium tracking-tight">Publications</h1>
+            <div className="flex items-baseline justify-between mb-8">
+                <h1 className="text-2xl font-medium tracking-tight">Publications</h1>
+                <a
+                    href={socialLinks.scholar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:opacity-80"
+                >
+                    <FaGraduationCap className="text-lg" />
+                    <span>Google Scholar</span>
+                </a>
+            </div>
             <div className="space-y-12">
                 {publications.map((pub, index) => (
                     <div key={index} className="group">
