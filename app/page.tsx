@@ -22,19 +22,12 @@ export default function Page() {
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          I'm a Ph.D. student at the University of British Columbia (UBC), working in the Gsponer Lab at Michael Smith Laboratories.
+          I'm a Ph.D. candidate in Bioinformatics at the University of British Columbia (UBC).
+          I'm working in <a href="https://www.msl.ubc.ca/people/dr-joerg-gsponer/" target="_blank" rel="noopener noreferrer">Gsponer Lab</a> at <a href="https://www.msl.ubc.ca/" target="_blank" rel="noopener noreferrer">Michael Smith Laboratories</a>.
         </p>
         <p>
-          My research focuses on protein design, diffusion models, and AI applications in drug discovery. I work on projects involving:
-        </p>
-        <ul>
-          <li>Diffusion & Flow matching models</li>
-          <li>Large Language Models</li>
-          <li>Protein Design</li>
-          <li>Drug Discovery</li>
-        </ul>
-        <p>
-          Previously, I completed my M.Sc. in Artificial Intelligence at Sharif University of Technology and my B.Sc. in Software Engineering at Isfahan University of Technology.
+          My research focuses on developing generative models for protein design. Specifically, I'm interested in using diffusion models and flow matching to design mini-protein binders.
+          I'm also interested in using large language models to enhanceprotein design and predict protein-protein interaction prediction.
         </p>
 
         <div className="my-8">
@@ -56,14 +49,14 @@ export default function Page() {
               <div className="flex flex-col">
                 <div className="w-full flex justify-between items-baseline">
                   <span className="text-black dark:text-white font-medium tracking-tight">
-                    {edu.institution}
+                    {edu.degree}
                   </span>
                   <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
                     {edu.years}
                   </span>
                 </div>
                 <div className="text-neutral-600 dark:text-neutral-400 text-sm leading-snug">
-                  <div>{edu.degree}</div>
+                  <div>{edu.institution}</div>
                   {edu.department && <div>{edu.department}</div>}
                   {edu.location && <div>{edu.location}</div>}
                 </div>

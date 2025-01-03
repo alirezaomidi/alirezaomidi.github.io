@@ -12,7 +12,7 @@ export const education: Education[] = [
         degree: "Ph.D. in Bioinformatics",
         years: "2021 - Present",
         department: "Gsponer Lab, Michael Smith Laboratories",
-        location: "Vancouver, Canada"
+        location: "Vancouver, BC, Canada"
     },
     {
         institution: "Sharif University of Technology",
