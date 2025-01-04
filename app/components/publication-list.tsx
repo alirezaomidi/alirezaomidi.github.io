@@ -1,43 +1,136 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaGithub, FaGitlab, FaBitbucket, FaBook, FaLink } from "react-icons/fa6";
 import { Publication } from "app/publications/publication-data";
+import { Modal } from "./ui/modal";
 
 interface PublicationListProps {
     publications: Publication[];
     showImages?: boolean;
 }
 
-export function PublicationList({ publications, showImages = true }: PublicationListProps) {
+const CodebaseIcon = ({ platform }: { platform: string }) => {
+    switch (platform) {
+        case "github":
+            return <FaGithub />;
+        case "gitlab":
+            return <FaGitlab />;
+        case "bitbucket":
+            return <FaBitbucket />;
+        default:
+            return <FaLink />;
+    }
+};
+
+function PaperButton({ doi, url }: { doi?: string; url: string }) {
     return (
-        <div className="space-y-12">
-            {publications.map((pub, index) => (
-                <div key={index} className="group">
-                    <a
-                        href={pub.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block transition-opacity duration-200 hover:opacity-80"
-                    >
+        <a
+            href={doi ? `https://doi.org/${doi}` : url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
+        >
+            <FaBook />
+            {doi ? (
+                <span className="font-mono">{doi}</span>
+            ) : (
+                <span>Paper</span>
+            )}
+        </a>
+    );
+}
+
+function CodebaseButton({ codebase }: { codebase: Publication["codebase"] }) {
+    if (!codebase) return null;
+
+    return (
+        <a
+            href={codebase.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
+        >
+            <CodebaseIcon platform={codebase.platform} />
+            <span>Code</span>
+        </a>
+    );
+}
+
+function PublicationModal({ publication, isOpen, onClose }: { publication: Publication; isOpen: boolean; onClose: () => void }) {
+    return (
+        <Modal isOpen={isOpen} onClose={onClose}>
+            <div className="prose prose-neutral dark:prose-invert max-w-none">
+                <h2 className="mb-2">{publication.title}</h2>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                    {publication.authors}
+                </p>
+                <p className="italic text-neutral-600 dark:text-neutral-400">
+                    {publication.journal} ({publication.year})
+                </p>
+                {publication.abstract && (
+                    <div className="mt-4">
+                        <h3 className="text-lg font-medium">Abstract</h3>
+                        <p className="text-neutral-600 dark:text-neutral-400">
+                            {publication.abstract}
+                        </p>
+                    </div>
+                )}
+                <div className="flex flex-wrap gap-2 mt-6">
+                    <PaperButton doi={publication.doi} url={publication.url} />
+                    {publication.codebase && <CodebaseButton codebase={publication.codebase} />}
+                </div>
+                {publication.figure && (
+                    <div className="mt-6">
+                        <div className="relative w-full overflow-hidden rounded-lg bg-white p-0">
+                            <Image
+                                src={publication.figure.url}
+                                alt={`Figure from ${publication.title}`}
+                                width={800}
+                                height={400}
+                                className="w-full h-auto object-contain"
+                                unoptimized={!publication.figure.isLocal}
+                            />
+                        </div>
+                    </div>
+                )}
+            </div>
+        </Modal>
+    );
+}
+
+export function PublicationList({ publications, showImages = true }: PublicationListProps) {
+    const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
+
+    return (
+        <>
+            <div className="space-y-12">
+                {publications.map((pub, index) => (
+                    <div key={index} className="group">
                         <div className="flex flex-col">
-                            <div className="w-full flex justify-between items-baseline">
-                                <span className="text-black dark:text-white font-medium tracking-tight group-hover:underline decoration-neutral-400 dark:decoration-neutral-600">
-                                    {pub.title}
-                                </span>
-                                <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                                    {pub.year}
-                                </span>
-                            </div>
-                            <p className="text-neutral-600 dark:text-neutral-400 mt-2">
-                                {pub.authors}
-                            </p>
-                            <div className="text-neutral-600 dark:text-neutral-400">
-                                <div className="italic">{pub.journal}</div>
-                                {pub.doi && (
-                                    <div className="text-sm flex items-center gap-2">
-                                        <span className="font-mono">https://doi.org/{pub.doi}</span>
-                                        <FaArrowUpRightFromSquare className="text-xs" />
-                                    </div>
-                                )}
+                            <button
+                                onClick={() => setSelectedPublication(pub)}
+                                className="block text-left transition-opacity duration-200 hover:opacity-80"
+                            >
+                                <div className="w-full flex justify-between items-baseline">
+                                    <span className="text-black dark:text-white font-medium tracking-tight group-hover:underline decoration-neutral-400 dark:decoration-neutral-600">
+                                        {pub.title}
+                                    </span>
+                                    <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+                                        {pub.year}
+                                    </span>
+                                </div>
+                                <p className="text-neutral-600 dark:text-neutral-400 mt-2">
+                                    {pub.authors}
+                                </p>
+                                <div className="text-neutral-600 dark:text-neutral-400">
+                                    <div className="italic">{pub.journal}</div>
+                                </div>
+                            </button>
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                <PaperButton doi={pub.doi} url={pub.url} />
+                                {pub.codebase && <CodebaseButton codebase={pub.codebase} />}
                             </div>
                             {showImages && pub.figure && (
                                 <div className="mt-4">
@@ -54,9 +147,16 @@ export function PublicationList({ publications, showImages = true }: Publication
                                 </div>
                             )}
                         </div>
-                    </a>
-                </div>
-            ))}
-        </div>
+                    </div>
+                ))}
+            </div>
+            {selectedPublication && (
+                <PublicationModal
+                    publication={selectedPublication}
+                    isOpen={true}
+                    onClose={() => setSelectedPublication(null)}
+                />
+            )}
+        </>
     );
 } 

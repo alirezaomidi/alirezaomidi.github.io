@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import { FaGraduationCap, FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaGraduationCap } from "react-icons/fa6";
+import { HiArrowRight } from "react-icons/hi2";
 import { publications } from "./publication-data";
 import { socialLinks } from "app/config";
 import { PublicationList } from "app/components/publication-list";
@@ -23,7 +24,6 @@ export default function Publications() {
                 >
                     <FaGraduationCap className="text-lg" />
                     <span>Google Scholar</span>
-                    <FaArrowUpRightFromSquare className="text-xs" />
                 </a>
             </div>
             <PublicationList publications={publications} />
@@ -34,7 +34,8 @@ export default function Publications() {
                     rel="noopener noreferrer"
                     className="text-neutral-600 dark:text-neutral-400 hover:opacity-80 no-underline inline-flex items-center gap-2"
                 >
-                    View All Publications on Google Scholar <FaArrowUpRightFromSquare className="text-xs" />
+                    <span>View All Publications on Google Scholar</span>
+                    <HiArrowRight />
                 </a>
             </div>
         </section>
