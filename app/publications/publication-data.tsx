@@ -63,9 +63,9 @@ export const publications: Publication[] = [
     title: "Learning Cancer Progression Network from Mutation Allele Frequencies",
     year: 2020,
     authors: "Mohammad Sadegh Akhondzadeh, Alireza Omidi, Zeinab Maleki, Kevin Coombes, Amanda E. Toland, Amir Asiaee",
-    journal: "ICML Workshop on Computational Biology",
+    journal: "ICML Workshop on Computational Biology", 
     url: "https://icml-compbio.github.io/2020/papers/WCBICML2020_paper_36.pdf",
-    abstract: "Cancer progression is a complex process involving multiple genetic alterations. Understanding the temporal order of these alterations is crucial for developing effective treatments. We present a novel method for learning cancer progression networks from mutation allele frequencies. Our approach leverages the relationship between mutation timing and allele frequencies to infer the most likely progression paths. We evaluate our method on both simulated data and real cancer datasets, demonstrating its ability to recover known progression patterns and discover new potential progression paths.",
+    abstract: "We model the partial order of accumulation of mutations during tumorigenesis by linear structural equations. In this framework, the cancer progression network is modeled as a weighted directed acyclic graph (DAG), which minimizes a suitable continuous loss function. The goal is to learn the DAG from cross-sectional mutation allele frequency data. As a case study, we infer the order of mutations in melanoma. The recovered network of melanoma matches the known biological facts about the subtypes and progression of melanoma while discovers mutual exclusivity patterns among mutations by negative edges.",
     figure: {
       url: "/photos/publications/icml-2020-fig1.png",
       isLocal: true,
