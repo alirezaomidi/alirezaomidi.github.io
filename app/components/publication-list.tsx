@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaGithub, FaGitlab, FaBitbucket, FaBook, FaLink } from "react-icons/fa6";
 import { Publication } from "app/publications/publication-data";
 import { Modal } from "./ui/modal";
+import { Tweet } from "react-tweet";
 
 interface PublicationListProps {
     publications: Publication[];
@@ -58,43 +59,59 @@ function CodebaseButton({ codebase }: { codebase: Publication["codebase"] }) {
     );
 }
 
+function getPostId(url: string): string {
+    const match = url.match(/status\/(\d+)/);
+    return match ? match[1] : "";
+}
+
 function PublicationModal({ publication, isOpen, onClose }: { publication: Publication; isOpen: boolean; onClose: () => void }) {
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <h2 className="mb-2">{publication.title}</h2>
-                <p className="text-neutral-600 dark:text-neutral-400">
+                <h2 className="mt-0 mb-0">{publication.title}</h2>
+                <p className="text-neutral-600 dark:text-neutral-400 mt-1 mb-1">
                     {publication.authors}
                 </p>
-                <p className="italic text-neutral-600 dark:text-neutral-400">
+                <p className="italic text-neutral-600 dark:text-neutral-400 my-1">
                     {publication.journal} ({publication.year})
                 </p>
                 {publication.abstract && (
-                    <div className="mt-4">
-                        <h3 className="text-lg font-medium">Abstract</h3>
-                        <p className="text-neutral-600 dark:text-neutral-400">
+                    <div className="mt-3">
+                        <h3 className="text-lg font-medium mb-1">Abstract</h3>
+                        <p className="text-neutral-600 dark:text-neutral-400 mt-0">
                             {publication.abstract}
                         </p>
                     </div>
                 )}
-                <div className="flex flex-wrap gap-2 mt-6">
+                <div className="flex flex-wrap gap-2 mt-4">
                     <PaperButton doi={publication.doi} url={publication.url} />
                     {publication.codebase && <CodebaseButton codebase={publication.codebase} />}
                 </div>
-                {publication.figure && (
-                    <div className="mt-6">
-                        <div className="relative w-full overflow-hidden rounded-lg bg-white p-0">
-                            <Image
-                                src={publication.figure.url}
-                                alt={`Figure from ${publication.title}`}
-                                width={800}
-                                height={400}
-                                className="w-full h-auto object-contain"
-                                unoptimized={!publication.figure.isLocal}
-                            />
+                <div className="mt-4">
+                    {publication.xPost ? (
+                        <div className="flex justify-center">
+                            <Tweet id={getPostId(publication.xPost)} />
                         </div>
-                    </div>
-                )}
+                    ) : publication.figure && (
+                        <figure className="m-0">
+                            <div className="relative w-full overflow-hidden rounded-lg bg-white p-0">
+                                <Image
+                                    src={publication.figure.url}
+                                    alt={`Figure from ${publication.title}`}
+                                    width={800}
+                                    height={400}
+                                    className="w-full h-auto object-contain"
+                                    unoptimized={!publication.figure.isLocal}
+                                />
+                            </div>
+                            {publication.figure.caption && (
+                                <figcaption className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+                                    {publication.figure.caption}
+                                </figcaption>
+                            )}
+                        </figure>
+                    )}
+                </div>
             </div>
         </Modal>
     );
