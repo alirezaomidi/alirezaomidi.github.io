@@ -33,11 +33,7 @@ function PaperButton({ doi, url }: { doi?: string; url: string }) {
             className="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
         >
             <FaBook />
-            {doi ? (
-                <span className="font-mono">{doi}</span>
-            ) : (
-                <span>Paper</span>
-            )}
+            <span>Paper</span>
         </a>
     );
 }
