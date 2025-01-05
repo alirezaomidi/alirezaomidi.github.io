@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Image from "next/image";
 import { FaGithub, FaGitlab, FaBitbucket, FaBook, FaLink } from "react-icons/fa6";
 import { Publication } from "app/publications/publication-data";
 import { Modal } from "./ui/modal";
 import { Tweet } from "react-tweet";
+import "./tweet.css";
 
 interface PublicationListProps {
     publications: Publication[];
@@ -90,7 +91,11 @@ function PublicationModal({ publication, isOpen, onClose }: { publication: Publi
                 <div className="mt-4">
                     {publication.xPost ? (
                         <div className="flex justify-center">
-                            <Tweet id={getPostId(publication.xPost)} />
+                            <div className="tweet my-6">
+                                <div className="flex justify-center">
+                                    <Tweet id={getPostId(publication.xPost)} />
+                                </div>
+                            </div>
                         </div>
                     ) : publication.figure && (
                         <figure className="m-0">
