@@ -31,10 +31,22 @@ export const publications: Publication[] = [
       url: "https://www.biorxiv.org/content/biorxiv/early/2025/02/15/2022.03.16.484643/F2.large.jpg",
     },
     xPost: "https://x.com/mo_lotfollahi/status/1596202841735139328",
-    selected: false,
+    selected: true,
     codebase: {
       url: "https://github.com/theislab/multigrate",
       platform: "github"
+    }
+  },
+  {
+    title: "Insulin-dependent and -independent dynamics of insulin receptor trafficking in muscle cells",
+    year: 2025,
+    authors: "Haoning Howard Cen, Aurora J. Mattison, Alireza Omidi, Jason Rogalski, Libin Abraham, Guang Gao, Michael R. Gold, Leonard J. Foster, Jörg Gsponer, James D. Johnson",
+    journal: "bioRxiv",
+    url: "https://www.biorxiv.org/content/10.1101/2021.06.29.450241v2",
+    doi: "10.1101/2021.06.29.450241",
+    abstract: "Insulin resistance contributes to type 2 diabetes and can be driven by hyperinsulinemia. Insulin receptor (INSR) internalization and cell-surface dynamics at rest and during insulin exposure are incompletely understood in muscle cells. Using surfacing labelling and live-cell imaging, we observed robust basal internalization of INSR in C2C12 myoblasts, without an effect of added insulin. Mass-spectrometry using INSR knockout cells as controls, identified high-confidence binding partners, including proteins associated with internalization. We confirmed known interactors, including IGF1R, but also identified underappreciated INSR-binding factors such as ANXA2. AlphaFold-Multimer analysis of these INSR-binding proteins predicted potential INSR binding sites of these proteins. Protein-protein interaction network mapping suggested links between INSR and caveolin-mediated endocytosis. INSR interacted with both caveolin and clathrin heavy chain (CLTC) in mouse skeletal muscle and C2C12 myoblasts. Whole cell 2D super-resolution imaging revealed that high levels of insulin (20 nM) increased INSR colocalization with CAV1 but decreased its colocalization with CLTC. Single particle tracking confirmed the colocalization of cell-surface INSR with both over-expressed CAV1-mRFP and CLTC-mRFP. INSR tracks that colocalized with CAV1 exhibited longer radii and lifetimes, regardless of insulin exposure, compared to non-colocalized tracks, whereas insulin further increased the lifetime of INSR/CLTC colocalized tracks. Overall, these data suggest that muscle cells utilize both CAV1 and CLTC-dependent pathways for INSR dynamics and internalization.",
+    figure: {
+      url: "https://www.biorxiv.org/content/biorxiv/early/2025/04/10/2021.06.29.450241/F3.large.jpg"
     }
   },
   {
