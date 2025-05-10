@@ -53,6 +53,15 @@ export default function Page() {
             <FaLinkedinIn />
             <span>LinkedIn</span>
           </a>
+          <a
+            href={socialLinks.scholar}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:opacity-80 no-underline"
+          >
+            <FaGraduationCap />
+            <span>Google Scholar</span>
+          </a>
         </div>
 
         <h2 className="font-medium text-2xl mb-8 tracking-tight">Education</h2>
