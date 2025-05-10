@@ -20,13 +20,13 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
-    title: "Integration and querying of multimodal single-cell data with PoE-VAE",
+    title: "Integration and Querying of Multimodal Single-Cell Data with PoE-VAE",
     year: 2025,
     authors: "Anastasia Litinetskaya, Maiia Schulman, Fabiola Curion, Artur Szalata, Alireza Omidi, Mohammad Lotfollahi, Fabian Theis",
-    journal: "bioRxiv",
-    url: "https://www.biorxiv.org/content/10.1101/2022.03.16.484643v2",
-    doi: "10.1101/2022.03.16.484643",
-    abstract: "Constructing joint representations from multimodal single-cell datasets is crucial for understanding cellular heterogeneity and function. Traditional methods, such as factor analysis and kNN-based approaches, face computational limitations with scalability across large datasets and multiple modalities. In this work, we demonstrate the product-of-experts VAE-based model, which offers a flexible, scalable solution for integrating multimodal data, allowing for the seamless mapping of both unimodal and multimodal queries onto a reference atlas. We evaluate how different strategies for combining modalities in the VAE framework impact query-to-reference mapping across diverse datasets, including CITE-seq and spatial metabolomics. Our benchmarks assess batch effect correction, biological signal preservation, and imputation of missing modalities. We showcase our approach in a mosaic setting, integrating CITE-seq and multiome data to accurately map unimodal and multimodal queries into the joint latent space. We extend this to spatial data by integrating gene expression and metabolomics from paired Visium and MALDI-MSI slides, achieving a high correlation in metabolite predictions from spatial gene expression. Our results demonstrate that this VAE-based framework is scalable, robust, and easily applicable across multiple modalities, providing a powerful tool for data imputation, querying, and biological discovery.",
+    journal: "Research in Computational Molecular Biology",
+    url: "https://doi.org/10.1007/978-3-031-90252-9_36",
+    doi: "10.1007/978-3-031-90252-9_36",
+    abstract: "Constructing joint representations from multimodal single-cell datasets is crucial for understanding cellular heterogeneity and function. In this work, we demonstrate the product-of-experts VAE-based model, which offers a flexible, scalable solution for integrating multimodal data, allowing for the seamless mapping of both unimodal and multimodal queries onto a reference atlas. We evaluate how different strategies for combining modalities in the VAE framework impact query-to-reference mapping across diverse datasets, including CITE-seq and spatial metabolomics. We showcase our approach in a mosaic setting, integrating CITE-seq and multiome data to accurately map unimodal and multimodal queries into the joint latent space. We extend this to spatial data by integrating gene expression and metabolomics from paired Visium and MALDI-MSI slides, achieving a high correlation in metabolite predictions from spatial gene expression. Our results demonstrate that this VAE-based framework is scalable, robust, and easily applicable across multiple modalities, providing a powerful tool for data imputation, querying, and biological discovery.",
     figure: {
       url: "https://www.biorxiv.org/content/biorxiv/early/2025/02/15/2022.03.16.484643/F2.large.jpg",
     },
