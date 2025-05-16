@@ -23,7 +23,7 @@ export const publications: Publication[] = [
     title: "Integration and Querying of Multimodal Single-Cell Data with PoE-VAE",
     year: 2025,
     authors: "Anastasia Litinetskaya, Maiia Schulman, Fabiola Curion, Artur Szalata, Alireza Omidi, Mohammad Lotfollahi, Fabian Theis",
-    journal: "Research in Computational Molecular Biology",
+    journal: "Research in Computational Molecular Biology (RECOMB)",
     url: "https://doi.org/10.1007/978-3-031-90252-9_36",
     doi: "10.1007/978-3-031-90252-9_36",
     abstract: "Constructing joint representations from multimodal single-cell datasets is crucial for understanding cellular heterogeneity and function. In this work, we demonstrate the product-of-experts VAE-based model, which offers a flexible, scalable solution for integrating multimodal data, allowing for the seamless mapping of both unimodal and multimodal queries onto a reference atlas. We evaluate how different strategies for combining modalities in the VAE framework impact query-to-reference mapping across diverse datasets, including CITE-seq and spatial metabolomics. We showcase our approach in a mosaic setting, integrating CITE-seq and multiome data to accurately map unimodal and multimodal queries into the joint latent space. We extend this to spatial data by integrating gene expression and metabolomics from paired Visium and MALDI-MSI slides, achieving a high correlation in metabolite predictions from spatial gene expression. Our results demonstrate that this VAE-based framework is scalable, robust, and easily applicable across multiple modalities, providing a powerful tool for data imputation, querying, and biological discovery.",
