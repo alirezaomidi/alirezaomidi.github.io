@@ -28,7 +28,8 @@ export const publications: Publication[] = [
     doi: "10.1007/978-3-031-90252-9_36",
     abstract: "Constructing joint representations from multimodal single-cell datasets is crucial for understanding cellular heterogeneity and function. In this work, we demonstrate the product-of-experts VAE-based model, which offers a flexible, scalable solution for integrating multimodal data, allowing for the seamless mapping of both unimodal and multimodal queries onto a reference atlas. We evaluate how different strategies for combining modalities in the VAE framework impact query-to-reference mapping across diverse datasets, including CITE-seq and spatial metabolomics. We showcase our approach in a mosaic setting, integrating CITE-seq and multiome data to accurately map unimodal and multimodal queries into the joint latent space. We extend this to spatial data by integrating gene expression and metabolomics from paired Visium and MALDI-MSI slides, achieving a high correlation in metabolite predictions from spatial gene expression. Our results demonstrate that this VAE-based framework is scalable, robust, and easily applicable across multiple modalities, providing a powerful tool for data imputation, querying, and biological discovery.",
     figure: {
-      url: "https://www.biorxiv.org/content/biorxiv/early/2025/02/15/2022.03.16.484643/F2.large.jpg",
+      url: "/photos/publications/poe-vae-recomb-2025-fig2.jpg",
+      isLocal: true
     },
     xPost: "https://x.com/mo_lotfollahi/status/1596202841735139328",
     selected: true,
@@ -46,7 +47,8 @@ export const publications: Publication[] = [
     doi: "10.1101/2021.06.29.450241",
     abstract: "Insulin resistance contributes to type 2 diabetes and can be driven by hyperinsulinemia. Insulin receptor (INSR) internalization and cell-surface dynamics at rest and during insulin exposure are incompletely understood in muscle cells. Using surfacing labelling and live-cell imaging, we observed robust basal internalization of INSR in C2C12 myoblasts, without an effect of added insulin. Mass-spectrometry using INSR knockout cells as controls, identified high-confidence binding partners, including proteins associated with internalization. We confirmed known interactors, including IGF1R, but also identified underappreciated INSR-binding factors such as ANXA2. AlphaFold-Multimer analysis of these INSR-binding proteins predicted potential INSR binding sites of these proteins. Protein-protein interaction network mapping suggested links between INSR and caveolin-mediated endocytosis. INSR interacted with both caveolin and clathrin heavy chain (CLTC) in mouse skeletal muscle and C2C12 myoblasts. Whole cell 2D super-resolution imaging revealed that high levels of insulin (20 nM) increased INSR colocalization with CAV1 but decreased its colocalization with CLTC. Single particle tracking confirmed the colocalization of cell-surface INSR with both over-expressed CAV1-mRFP and CLTC-mRFP. INSR tracks that colocalized with CAV1 exhibited longer radii and lifetimes, regardless of insulin exposure, compared to non-colocalized tracks, whereas insulin further increased the lifetime of INSR/CLTC colocalized tracks. Overall, these data suggest that muscle cells utilize both CAV1 and CLTC-dependent pathways for INSR dynamics and internalization.",
     figure: {
-      url: "https://www.biorxiv.org/content/biorxiv/early/2025/04/10/2021.06.29.450241/F3.large.jpg"
+      url: "/photos/publications/insulin-receptor-trafficking-2025-fig3.jpg",
+      isLocal: true
     }
   },
   {
@@ -77,7 +79,8 @@ export const publications: Publication[] = [
     doi: "10.1101/2024.07.29.605625",
     abstract: "Multimodal analysis of single-cell samples from healthy and diseased tissues at various stages provides a comprehensive view that identifies disease-specific cells, their molecular features and aids in patient stratification. Here, we present MultiMIL, a novel weakly-supervised multimodal model designed to construct multimodal single-cell references and prioritize phenotype-specific cells via patient classification. MultiMIL effectively integrates single-cell modalities, even when they only partially overlap, providing robust representations for downstream analyses such as phenotypic prediction and cell prioritization. Using a multiple-instance learning approach, MultiMIL aggregates cell-level measurements into sample-level representations and identifies disease-specific cell states through attention-based scoring. We demonstrate that MultiMIL accurately identifies disease-specific cell states in blood and lung samples, identifying novel disease-associated genes and achieving superior patient classification accuracy compared to existing methods. We anticipate MultiMIL will become an essential tool for querying single-cell multiomic atlases, enhancing our understanding of disease mechanisms and informing targeted treatments.",
     figure: {
-      url: "https://www.biorxiv.org/content/biorxiv/early/2024/07/29/2024.07.29.605625/F1.large.jpg"
+      url: "/photos/publications/multimil-weakly-supervised-2024-fig1.jpg",
+      isLocal: true
     },
     xPost: "https://x.com/mo_lotfollahi/status/1818341687481319804",
     selected: true,
