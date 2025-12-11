@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import { TweetComponent } from "./tweet";
+import { LinkedInComponent } from "./linkedin";
 import { CaptionComponent } from "./caption";
 import { YouTubeComponent } from "./youtube";
 import { ImageGrid } from "./image-grid";
@@ -111,6 +112,7 @@ let components = {
   ImageGrid,
   a: CustomLink,
   StaticTweet: TweetComponent,
+  StaticLinkedIn: LinkedInComponent,
   Caption: CaptionComponent,
   YouTube: YouTubeComponent,
   code: Code,

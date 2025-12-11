@@ -15,10 +15,26 @@ export interface Publication {
     isLocal?: boolean;
   };
   xPost?: string;  // Full X (Twitter) post URL
+  linkedinPost?: string;  // Full LinkedIn post URL
   selected?: boolean;
 }
 
 export const publications: Publication[] = [
+  {
+    title: "Challenging AlphaFold in predicting proteins with large-scale allosteric transitions",
+    year: 2025,
+    authors: "Brooks H. Perkins-Jechow, Juan Pablo Iglesias Ahualli, Huyen Thuc Nhu, Alireza Omidi, Chunchao Li, Jorge A. Holguin-Cruz, Daeahn Cho, Dokyun Na, Nawar Malhis, Jennifer M. Bui, Jörg Gsponer",
+    journal: "Nature Communications Chemistry",
+    url: "https://www.nature.com/articles/s42004-025-01763-0",
+    doi: "10.1038/s42004-025-01763-0",
+    abstract: "Many proteins function by toggling between distinct conformations, yet most structure predictors have been trained on data that do not capture this conformational diversity. Here, we benchmarked AlphaFold2, AlphaFold3, and recent variants on autoinhibited proteins, a class of allosterically regulated, often multi-domain proteins that exist in equilibrium between active and autoinhibited states. Our analyses show that AlphaFold2 fails to reproduce the experimental structures of many autoinhibited proteins, which is reflected in reduced confidence scores. This contrasts sharply with its high-accuracy, high-confidence predictions of non-autoinhibited multi-domain proteins. When tested for its ability to capture conformational diversity, we found that AlphaFold2 performs better when combined with uniform subsampling of sequence alignments rather than local subsampling. BioEmu and AlphaFold3 improve upon these results, yet still struggle to accurately reproduce details of experimental structures. Together, our study underscores the persistent challenges of predicting protein structures shaped by complex energy landscapes.",
+    figure: {
+      url: "/photos/publications/challenging-alphafold-2025-fig1.png",
+      isLocal: true
+    },
+    linkedinPost: "https://www.linkedin.com/posts/jennifer-m-bui-phd-73065116a_challenging-alphafold-in-predicting-proteins-activity-7399595388925575168-KOhO",
+    selected: true
+  },
   {
     title: "Integration and Querying of Multimodal Single-Cell Data with PoE-VAE",
     year: 2025,
