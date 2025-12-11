@@ -17,9 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return {
-      title: "Not Found",
-    };
+    notFound();
   }
 
   let {

@@ -32,17 +32,11 @@
 }
 
 .linkedin-fallback {
-  display: none;
+  display: block;
   margin-top: 1rem;
   padding: 1rem;
   text-align: center;
   border-top: 1px solid var(--linkedin-border, #e0e0e0);
-}
-
-/* Show fallback if iframe fails (detected via CSS) */
-.linkedin-container:has(.linkedin-embed[src=""]) .linkedin-fallback,
-.linkedin-container .linkedin-embed:not([src]) ~ .linkedin-fallback {
-  display: block;
 }
 
 
