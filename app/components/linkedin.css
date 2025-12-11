@@ -17,19 +17,34 @@
   border: 1px solid var(--linkedin-border, #e0e0e0);
   margin: 0 !important;
   padding: 0 !important;
+  position: relative;
 }
 
 .linkedin-embed {
   border: none;
   border-radius: 8px;
-  min-height: 764px;
   width: 100%;
+  max-width: 504px;
   height: 764px;
   margin: 0 !important;
   padding: 0 !important;
   display: block;
-  vertical-align: top;
 }
+
+.linkedin-fallback {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid var(--linkedin-border, #e0e0e0);
+}
+
+/* Show fallback if iframe fails (detected via CSS) */
+.linkedin-container:has(.linkedin-embed[src=""]) .linkedin-fallback,
+.linkedin-container .linkedin-embed:not([src]) ~ .linkedin-fallback {
+  display: block;
+}
+
 
 .linkedin-link {
   display: block;

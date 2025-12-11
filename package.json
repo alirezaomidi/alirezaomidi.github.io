@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "serve": "npx serve out"
   },
   "dependencies": {
     "@types/node": "22.5.0",
