@@ -21,6 +21,32 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: "Predicting protein interfaces in the age of AlphaFold: Why dynamics and disorder remain a challenge",
+    year: 2026,
+    authors: "Alireza Omidi, Jennifer M. Bui, Jörg Gsponer",
+    journal: "Cell Systems",
+    url: "https://www.cell.com/cell-systems/fulltext/S2405-4712(25)00341-2",
+    abstract: "Two recent studies in Cell Systems show why protein dynamics matter for prediction. By moving beyond static structures and embracing the dynamic \"jigglings and wigglings\" that Richard Feynman famously described, these approaches improve accuracy in binding site predictions for flexible systems despite challenges such as sparse training data. Together, they signal a shift toward models that try to capture the full energy landscape, paving the way for deeper insights into protein function.",
+    figure: {
+      url: "/photos/publications/cell-systems-2026-alphafold-interfaces-fig1.jpg",
+      isLocal: true
+    },
+    selected: true
+  },
+  {
+    title: "Insulin receptor trafficking and interactions in muscle cells",
+    year: 2026,
+    authors: "Haoning Howard Cen, Aurora J. Mattison, Alireza Omidi, Jason Rogalski, Libin Abraham, Guang Gao, Michael R. Gold, Leonard J. Foster, Jörg Gsponer, James D. Johnson",
+    journal: "Journal of the Endocrine Society",
+    url: "https://doi.org/10.1210/jendso/bvag020",
+    doi: "10.1210/jendso/bvag020",
+    abstract: "Insulin resistance contributes to type 2 diabetes and can be driven by hyperinsulinemia. Insulin receptor (INSR) internalization and cell-surface dynamics at rest and during insulin exposure are incompletely understood in muscle cells. Using surface labelling and live-cell imaging, we observed robust basal internalization of INSR in C2C12 myoblasts, without an effect of added insulin. Mass-spectrometry using INSR knockout cells as controls, identified high-confidence binding partners, including proteins associated with internalization. We confirmed known interactors, including IGF1R, but also identified underappreciated INSR-binding factors such as ANXA2. AlphaFold-Multimer analysis of these INSR-binding proteins predicted potential INSR binding sites of these proteins. Protein-protein interaction network mapping suggested links between INSR and caveolin-mediated endocytosis. INSR interacted with both caveolin and clathrin heavy chain (CLTC) in mouse skeletal muscle and C2C12 myoblasts. Whole cell 2D super-resolution imaging revealed that high levels of insulin (20 nM) increased INSR colocalization with CAV1 but decreased its colocalization with CLTC. Single particle tracking confirmed the colocalization of cell-surface INSR with both over-expressed CAV1-mRFP and CLTC-mRFP. INSR tracks that colocalized with CAV1 exhibited longer radii and lifetimes, regardless of insulin exposure, compared to non-colocalized tracks, whereas insulin further increased the lifetime of INSR/CLTC colocalized tracks. Overall, these data suggest that muscle cells utilize both CAV1 and CLTC-dependent pathways for INSR dynamics and internalization.",
+    figure: {
+      url: "/photos/publications/insulin-receptor-trafficking-2025-fig3.jpg",
+      isLocal: true
+    },
+  },
+  {
     title: "Challenging AlphaFold in predicting proteins with large-scale allosteric transitions",
     year: 2025,
     authors: "Brooks H. Perkins-Jechow, Juan Pablo Iglesias Ahualli, Huyen Thuc Nhu, Alireza Omidi, Chunchao Li, Jorge A. Holguin-Cruz, Daeahn Cho, Dokyun Na, Nawar Malhis, Jennifer M. Bui, Jörg Gsponer",
@@ -52,19 +78,6 @@ export const publications: Publication[] = [
     codebase: {
       url: "https://github.com/theislab/multigrate",
       platform: "github"
-    }
-  },
-  {
-    title: "Insulin-dependent and -independent dynamics of insulin receptor trafficking in muscle cells",
-    year: 2025,
-    authors: "Haoning Howard Cen, Aurora J. Mattison, Alireza Omidi, Jason Rogalski, Libin Abraham, Guang Gao, Michael R. Gold, Leonard J. Foster, Jörg Gsponer, James D. Johnson",
-    journal: "bioRxiv",
-    url: "https://www.biorxiv.org/content/10.1101/2021.06.29.450241v2",
-    doi: "10.1101/2021.06.29.450241",
-    abstract: "Insulin resistance contributes to type 2 diabetes and can be driven by hyperinsulinemia. Insulin receptor (INSR) internalization and cell-surface dynamics at rest and during insulin exposure are incompletely understood in muscle cells. Using surfacing labelling and live-cell imaging, we observed robust basal internalization of INSR in C2C12 myoblasts, without an effect of added insulin. Mass-spectrometry using INSR knockout cells as controls, identified high-confidence binding partners, including proteins associated with internalization. We confirmed known interactors, including IGF1R, but also identified underappreciated INSR-binding factors such as ANXA2. AlphaFold-Multimer analysis of these INSR-binding proteins predicted potential INSR binding sites of these proteins. Protein-protein interaction network mapping suggested links between INSR and caveolin-mediated endocytosis. INSR interacted with both caveolin and clathrin heavy chain (CLTC) in mouse skeletal muscle and C2C12 myoblasts. Whole cell 2D super-resolution imaging revealed that high levels of insulin (20 nM) increased INSR colocalization with CAV1 but decreased its colocalization with CLTC. Single particle tracking confirmed the colocalization of cell-surface INSR with both over-expressed CAV1-mRFP and CLTC-mRFP. INSR tracks that colocalized with CAV1 exhibited longer radii and lifetimes, regardless of insulin exposure, compared to non-colocalized tracks, whereas insulin further increased the lifetime of INSR/CLTC colocalized tracks. Overall, these data suggest that muscle cells utilize both CAV1 and CLTC-dependent pathways for INSR dynamics and internalization.",
-    figure: {
-      url: "/photos/publications/insulin-receptor-trafficking-2025-fig3.jpg",
-      isLocal: true
     }
   },
   {
