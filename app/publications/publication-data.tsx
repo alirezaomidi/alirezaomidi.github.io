@@ -21,6 +21,21 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: "De Novo Design of Protein Switches with Diffusion-Based Ensemble Sampling",
+    year: 2026,
+    authors: "Alireza Omidi, Jiajun He, Jennifer M. Bui, Jörg Gsponer, Saifuddin Syed",
+    journal: "bioRxiv",
+    url: "https://www.biorxiv.org/content/10.64898/2026.07.20.739027v1",
+    doi: "10.64898/2026.07.20.739027",
+    abstract: "Protein switches are proteins that can respond to biochemical stimuli by rearranging their structural elements, essential for cells to transduce signals. The de novo design of such proteins requires amino acid sequences whose energy landscapes support multiple stimulus-dependent conformations, yet most current de novo protein design pipelines are optimized for single stable structures. Existing multi-state inverse-folding methods can design sequences compatible with multiple backbones, but they assume that suitable backbone ensembles are already available, often requiring expert knowledge. We introduce Diff-Switch, a framework for sampling switch-like backbone ensembles from pretrained protein diffusion models. Given a reference backbone structure and domain decomposition, our method preserves local domain geometry while encouraging diversity in global domain arrangements along user-specified collective variables, inspired by metadynamics. We implement this objective through a controlled diffusion sampler with reward-tilting for local similarity between the ensemble members and history-dependent bias in collective-variable space to avoid repeated sampling of the same global arrangement. The resulting ensembles provide candidate conformational states for downstream multi-state inverse folding. Across our evaluation set of 20 diverse proteins, using conformations from these generated ensembles improves the success rate of finding switch-compatible sequences over baseline sampling. We further apply the method to a real-world protein switch design task and characterize the resulting designs.",
+    figure: {
+      url: "/photos/publications/diff-switch-2026-fig1.jpg",
+      isLocal: true
+    },
+    xPost: "https://x.com/BiologyAIDaily/status/2080070137601036473",
+    selected: true
+  },
+  {
     title: "Predicting protein interfaces in the age of AlphaFold: Why dynamics and disorder remain a challenge",
     year: 2026,
     authors: "Alireza Omidi, Jennifer M. Bui, Jörg Gsponer",
