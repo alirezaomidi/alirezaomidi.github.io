@@ -1,7 +1,7 @@
 "use client"
 
 import createGlobe, { COBEOptions } from "cobe"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { cn } from "app/lib/utils"
 
 const GLOBE_CONFIG: COBEOptions = {
@@ -48,61 +48,101 @@ export function Globe({
     className?: string
     config?: COBEOptions
 }) {
-    let phi = 0
-    let width = 0
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const pointerInteracting = useRef(null)
+    const containerRef = useRef<HTMLDivElement>(null)
+    // All animation state lives in refs. As per-render locals, `phi` and `width`
+    // were recreated every render while the globe kept the first `onRender`
+    // closure forever, so drag never reached it.
+    const phi = useRef(0)
+    const width = useRef(0)
+    const r = useRef(0)
+    const pointerInteracting = useRef<number | null>(null)
     const pointerInteractionMovement = useRef(0)
-    const [r, setR] = useState(0)
+    // Rendering only happens while the globe is on-screen and the tab is visible.
+    const visible = useRef(false)
+    const reducedMotion = useRef(false)
 
-    const updatePointerInteraction = (value: any) => {
+    const updatePointerInteraction = (value: number | null) => {
         pointerInteracting.current = value
         if (canvasRef.current) {
-            canvasRef.current.style.cursor = value ? "grabbing" : "grab"
+            canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
         }
     }
 
-    const updateMovement = (clientX: any) => {
+    const updateMovement = (clientX: number) => {
         if (pointerInteracting.current !== null) {
             const delta = clientX - pointerInteracting.current
             pointerInteractionMovement.current = delta
-            setR(delta / 200)
-        }
-    }
-
-    const onRender = useCallback(
-        (state: Record<string, any>) => {
-            if (!pointerInteracting.current) phi += 0.005
-            state.phi = phi + r
-            state.width = width * 2
-            state.height = width * 2
-        },
-        [r],
-    )
-
-    const onResize = () => {
-        if (canvasRef.current) {
-            width = canvasRef.current.offsetWidth
+            r.current = delta / 200
         }
     }
 
     useEffect(() => {
+        const canvas = canvasRef.current
+        const container = containerRef.current
+        if (!canvas || !container) return
+
+        const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+        reducedMotion.current = motionQuery.matches
+        const onMotionChange = () => {
+            reducedMotion.current = motionQuery.matches
+        }
+        motionQuery.addEventListener("change", onMotionChange)
+
+        const onResize = () => {
+            width.current = canvas.offsetWidth
+        }
         window.addEventListener("resize", onResize)
         onResize()
 
-        const globe = createGlobe(canvasRef.current!, {
+        const globe = createGlobe(canvas, {
             ...config,
-            width: width * 2,
-            height: width * 2,
-            onRender,
+            width: width.current * 2,
+            height: width.current * 2,
+            onRender: (state: Record<string, any>) => {
+                // Auto-rotate unless the user is dragging or has asked for
+                // reduced motion. Compare to null: clientX can legitimately be 0.
+                if (pointerInteracting.current === null && !reducedMotion.current) {
+                    phi.current += 0.005
+                }
+                state.phi = phi.current + r.current
+                state.width = width.current * 2
+                state.height = width.current * 2
+            },
         })
 
-        setTimeout(() => (canvasRef.current!.style.opacity = "1"))
-        return () => globe.destroy()
-    }, [])
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                visible.current = entry.isIntersecting
+                globe.toggle(entry.isIntersecting && !document.hidden)
+            },
+            { threshold: 0 },
+        )
+        observer.observe(container)
+
+        const onVisibilityChange = () => {
+            globe.toggle(visible.current && !document.hidden)
+        }
+        document.addEventListener("visibilitychange", onVisibilityChange)
+
+        const fadeIn = setTimeout(() => {
+            canvas.style.opacity = "1"
+        })
+
+        return () => {
+            clearTimeout(fadeIn)
+            observer.disconnect()
+            document.removeEventListener("visibilitychange", onVisibilityChange)
+            motionQuery.removeEventListener("change", onMotionChange)
+            window.removeEventListener("resize", onResize)
+            globe.destroy()
+        }
+    }, [config])
 
     return (
         <div
+            ref={containerRef}
+            aria-hidden="true"
             className={cn(
                 "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
                 className,
