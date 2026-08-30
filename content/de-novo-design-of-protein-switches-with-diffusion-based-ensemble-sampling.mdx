@@ -3,6 +3,7 @@ title: "Publication: De Novo Design of Protein Switches with Diffusion-Based Ens
 publishedAt: "2026-07-21"
 summary: "Diff-Switch samples switch-like backbone ensembles from pretrained protein diffusion models to design de novo protein switches"
 tags: "Research, Protein Design, Diffusion Models, Protein Switches"
+image: "/photos/publications/diff-switch-2026-fig1.jpg"
 ---
 
 **Authors:** Alireza Omidi, Jiajun He, Jennifer M. Bui, Jörg Gsponer, Saifuddin Syed
@@ -13,17 +14,13 @@ Published in _bioRxiv_, 2026
 
 Protein switches are proteins that can respond to biochemical stimuli by rearranging their structural elements, essential for cells to transduce signals. The de novo design of such proteins requires amino acid sequences whose energy landscapes support multiple stimulus-dependent conformations, yet most current de novo protein design pipelines are optimized for single stable structures. Existing multi-state inverse-folding methods can design sequences compatible with multiple backbones, but they assume that suitable backbone ensembles are already available, often requiring expert knowledge. We introduce Diff-Switch, a framework for sampling switch-like backbone ensembles from pretrained protein diffusion models. Given a reference backbone structure and domain decomposition, our method preserves local domain geometry while encouraging diversity in global domain arrangements along user-specified collective variables, inspired by metadynamics. We implement this objective through a controlled diffusion sampler with reward-tilting for local similarity between the ensemble members and history-dependent bias in collective-variable space to avoid repeated sampling of the same global arrangement. The resulting ensembles provide candidate conformational states for downstream multi-state inverse folding. Across our evaluation set of 20 diverse proteins, using conformations from these generated ensembles improves the success rate of finding switch-compatible sequences over baseline sampling. We further apply the method to a real-world protein switch design task and characterize the resulting designs.
 
-<Image
+<Figure
   src="/photos/publications/diff-switch-2026-fig1.jpg"
   alt="Protein switches and the de novo protein switch design pipeline with Diff-Switch"
   width={800}
   height={455}
-  style={{ backgroundColor: 'white' }}
+  caption="Figure 1. Protein switches and the de novo protein switch design pipeline"
 />
-
-<Caption>
-Figure 1. Protein switches and the de novo protein switch design pipeline
-</Caption>
 
 <StaticTweet id="2080070137601036473" />
 

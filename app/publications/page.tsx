@@ -3,12 +3,18 @@ import type { Metadata } from "next";
 import { FaGraduationCap } from "react-icons/fa6";
 import { HiArrowRight } from "react-icons/hi2";
 import { publications } from "./publication-data";
-import { socialLinks } from "app/config";
+import { metaData, socialLinks } from "app/config";
 import { PublicationList } from "app/components/publication-list";
 
 export const metadata: Metadata = {
     title: "Publications",
     description: "Academic Publications and Research Work",
+    alternates: { canonical: "/publications" },
+    openGraph: {
+        title: "Publications",
+        description: "Academic Publications and Research Work",
+        url: `${metaData.baseUrl}/publications`,
+    },
 };
 
 export default function Publications() {

@@ -149,3 +149,26 @@ table {
 .title {
   text-wrap: balance;
 }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  color: #1c1c1c;
+  border: 1px solid #1c1c1c;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.dark .skip-link {
+  background-color: #121212;
+  color: #d4d4d4;
+  border-color: #d4d4d4;
+}

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   FaXTwitter,
@@ -12,12 +10,22 @@ import { TbMailFilled } from "react-icons/tb";
 import { metaData, socialLinks } from "app/config";
 import { Globe } from "./ui/globe";
 
+// Stamped at build time. Rendering it on the client too would mismatch the
+// prerendered HTML on the first page load of a new year.
 const YEAR = new Date().getFullYear();
 
-function SocialLink({ href, icon: Icon }) {
+function SocialLink({
+  href,
+  icon: Icon,
+  label,
+}: {
+  href: string;
+  icon: React.ComponentType;
+  label: string;
+}) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <Icon />
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+      <Icon aria-hidden="true" />
     </a>
   );
 }
@@ -25,19 +33,19 @@ function SocialLink({ href, icon: Icon }) {
 function SocialLinks() {
   return (
     <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
-      <SocialLink href={socialLinks.scholar} icon={FaGraduationCap} />
-      <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
-      <SocialLink href={socialLinks.github} icon={FaGithub} />
-      <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-      <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
+      <SocialLink href={socialLinks.scholar} icon={FaGraduationCap} label="Google Scholar" />
+      <SocialLink href={socialLinks.twitter} icon={FaXTwitter} label="X" />
+      <SocialLink href={socialLinks.github} icon={FaGithub} label="GitHub" />
+      <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} label="LinkedIn" />
+      <SocialLink href={socialLinks.email} icon={TbMailFilled} label="Email" />
+      <SocialLink href={socialLinks.instagram} icon={FaInstagram} label="Instagram" />
     </div>
   );
 }
 
 export default function Footer() {
   return (
-    <div className="relative mt-20">
+    <footer className="relative mt-20">
       <small className="block text-[#1C1C1C] dark:text-[#D4D4D4]">
         <time>© {YEAR}</time>{" "}
         <a
@@ -48,26 +56,19 @@ export default function Footer() {
         >
           {metaData.title}
         </a>
-        <style jsx>{`
-          @media screen and (max-width: 480px) {
-            article {
-              padding-top: 2rem;
-              padding-bottom: 4rem;
-            }
-          }
-        `}</style>
         <SocialLinks />
       </small>
       <div className="relative mt-16">
         <div className="relative h-[150px] sm:h-[200px] md:h-[300px] w-full max-w-3xl mx-auto overflow-hidden">
           <div className="flex justify-center">
-            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-lg font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+            {/* Gradient stops stay above the 4.5:1 contrast floor at both ends. */}
+            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-neutral-600 bg-clip-text text-lg font-semibold leading-none text-transparent dark:from-white dark:to-neutral-400">
               Tiny footprints, big dreams
             </span>
           </div>
           <Globe className="opacity-70" />
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

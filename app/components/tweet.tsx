@@ -9,7 +9,7 @@ import {
 import './tweet.css';
 
 const TweetContent = async ({ id, components, onError }: TweetProps) => {
-  let error;
+  let error: unknown;
   const tweet = id
     ? await getTweet(id).catch((err) => {
         if (onError) {
@@ -22,6 +22,15 @@ const TweetContent = async ({ id, components, onError }: TweetProps) => {
     : undefined;
 
   if (!tweet) {
+    // Fail the production build rather than silently shipping a permanent
+    // "Tweet not found" card when X rate-limits or blocks the CI runner.
+    if (process.env.NODE_ENV === "production" && !onError) {
+      throw new Error(
+        `Failed to fetch tweet ${id} at build time. ` +
+          `Re-run the build, or remove the embed if the tweet is gone. ` +
+          `Cause: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
     const NotFound = components?.TweetNotFound || TweetNotFound;
     return <NotFound error={error} />;
   }
