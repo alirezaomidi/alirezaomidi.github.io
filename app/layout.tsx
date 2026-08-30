@@ -1,10 +1,7 @@
 import "./global.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData } from "./config";
@@ -16,11 +13,18 @@ export const metadata: Metadata = {
     template: `%s | ${metaData.title}`,
   },
   description: metaData.description,
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/rss.xml", title: metaData.title }],
+    },
+  },
   openGraph: {
     images: metaData.ogImage,
     title: metaData.title,
     description: metaData.description,
-    url: metaData.baseUrl,
+    // `url` is deliberately not set here: on a root layout it would stamp every
+    // page as the homepage. Each page sets its own.
     siteName: metaData.name,
     locale: "en_US",
     type: "website",
@@ -39,13 +43,13 @@ export const metadata: Metadata = {
   twitter: {
     title: metaData.name,
     card: "summary_large_image",
+    site: metaData.xHandle,
+    creator: metaData.xHandle,
   },
   icons: {
     icon: "/favicon.ico",
   },
 };
-
-const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -53,7 +57,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+    // next-themes mutates <html> before hydration; this scopes the expected
+    // mismatch to this element's own attributes.
+    <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
       <head />
       <body className="antialiased flex flex-col items-center justify-center mx-auto mt-0 lg:mt-0 mb-0 lg:mb-0">
         <ThemeProvider
@@ -62,13 +68,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full">
-            <Navbar />
-            {children}
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
+          <div className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full">
+            <header>
+              <Navbar />
+            </header>
+            <main id="main-content">{children}</main>
             <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
