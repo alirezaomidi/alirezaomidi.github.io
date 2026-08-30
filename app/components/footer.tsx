@@ -60,12 +60,6 @@ export default function Footer() {
       </small>
       <div className="relative mt-16">
         <div className="relative h-[150px] sm:h-[200px] md:h-[300px] w-full max-w-3xl mx-auto overflow-hidden">
-          <div className="flex justify-center">
-            {/* Gradient stops stay above the 4.5:1 contrast floor at both ends. */}
-            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-neutral-600 bg-clip-text text-lg font-semibold leading-none text-transparent dark:from-white dark:to-neutral-400">
-              Tiny footprints, big dreams
-            </span>
-          </div>
           <Globe className="opacity-70" />
         </div>
       </div>
