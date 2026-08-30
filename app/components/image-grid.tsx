@@ -8,11 +8,14 @@ interface ImageGridProps {
     href?: string;
   }[];
   columns?: 2 | 3 | 4; // Accepts 2, 3, or 4 columns
+  /** Eagerly load the first row. Off by default; every image was `priority`. */
+  priority?: boolean;
 }
 
 export const ImageGrid: React.FC<ImageGridProps> = ({
   images,
   columns = 3,
+  priority = false,
 }) => {
   const gridClass = {
     2: "grid-cols-2 sm:grid-cols-2",
@@ -37,7 +40,7 @@ export const ImageGrid: React.FC<ImageGridProps> = ({
                   src={image.src}
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
-                  priority
+                  priority={priority && index < columns}
                   className="rounded-lg object-cover"
                 />
               </a>
@@ -47,7 +50,7 @@ export const ImageGrid: React.FC<ImageGridProps> = ({
                 src={image.src}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                priority
+                priority={priority && index < columns}
                 className="rounded-lg object-cover"
               />
             )}
