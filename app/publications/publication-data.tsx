@@ -62,7 +62,6 @@ export const publications: Publication[] = [
       isLocal: true,
       alt: "Four rows of predicted protein complexes, ordered by increasing structural dynamics: a rigid globular pair at the top through progressively more disordered, multi-conformation ensembles at the bottom."
     },
-    selected: true
   },
   {
     title: "Insulin receptor trafficking and interactions in muscle cells",
