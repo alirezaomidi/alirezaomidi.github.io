@@ -71,12 +71,12 @@ export default function Page() {
           {metaData.name}
         </h1>
         <p>
-          I'm a Ph.D. candidate in Bioinformatics at the University of British Columbia (UBC).
-          I'm working in <a href="https://www.msl.ubc.ca/people/dr-joerg-gsponer/" target="_blank" rel="noopener noreferrer">Gsponer Lab</a> at <a href="https://www.msl.ubc.ca/" target="_blank" rel="noopener noreferrer">Michael Smith Laboratories</a>.
+          I&apos;m a Ph.D. candidate in Bioinformatics at the University of British Columbia (UBC).
+          I&apos;m working in <a href="https://www.msl.ubc.ca/people/dr-joerg-gsponer/" target="_blank" rel="noopener noreferrer">Gsponer Lab</a> at <a href="https://www.msl.ubc.ca/" target="_blank" rel="noopener noreferrer">Michael Smith Laboratories</a>.
         </p>
         <p>
-          My research focuses on developing generative models for protein design. Specifically, I'm interested in using diffusion models and flow matching to design mini-protein binders.
-          I'm also interested in using large language models to enhance protein design and predict protein-protein interactions.
+          My research focuses on developing generative models for protein design. Specifically, I&apos;m interested in using diffusion models and flow matching to design mini-protein binders.
+          I&apos;m also interested in using large language models to enhance protein design and predict protein-protein interactions.
         </p>
 
         <div className="my-8 flex flex-wrap gap-3">
