@@ -67,9 +67,9 @@ export default function Page() {
       </a>
 
       <div className="prose prose-neutral dark:prose-invert">
-        <h1 className="font-semibold text-3xl tracking-tight mb-4">
-          {metaData.name}
-        </h1>
+        {/* Visually hidden: the name is already shown in the navbar, but the
+            page still needs an h1 for screen-reader and search-engine outlines. */}
+        <h1 className="sr-only">{metaData.name}</h1>
         <p>
           I&apos;m a Ph.D. candidate in Bioinformatics at the University of British Columbia (UBC).
           I&apos;m working in <a href="https://www.msl.ubc.ca/people/dr-joerg-gsponer/" target="_blank" rel="noopener noreferrer">Gsponer Lab</a> at <a href="https://www.msl.ubc.ca/" target="_blank" rel="noopener noreferrer">Michael Smith Laboratories</a>.
