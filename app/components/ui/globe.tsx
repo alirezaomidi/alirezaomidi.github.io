@@ -60,7 +60,6 @@ export function Globe({
     const pointerInteractionMovement = useRef(0)
     // Rendering only happens while the globe is on-screen and the tab is visible.
     const visible = useRef(false)
-    const reducedMotion = useRef(false)
 
     const updatePointerInteraction = (value: number | null) => {
         pointerInteracting.current = value
@@ -82,13 +81,6 @@ export function Globe({
         const container = containerRef.current
         if (!canvas || !container) return
 
-        const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-        reducedMotion.current = motionQuery.matches
-        const onMotionChange = () => {
-            reducedMotion.current = motionQuery.matches
-        }
-        motionQuery.addEventListener("change", onMotionChange)
-
         const onResize = () => {
             width.current = canvas.offsetWidth
         }
@@ -100,9 +92,9 @@ export function Globe({
             width: width.current * 2,
             height: width.current * 2,
             onRender: (state: Record<string, any>) => {
-                // Auto-rotate unless the user is dragging or has asked for
-                // reduced motion. Compare to null: clientX can legitimately be 0.
-                if (pointerInteracting.current === null && !reducedMotion.current) {
+                // Auto-rotate unless the user is dragging. Compare to null:
+                // clientX can legitimately be 0.
+                if (pointerInteracting.current === null) {
                     phi.current += 0.005
                 }
                 state.phi = phi.current + r.current
@@ -133,7 +125,6 @@ export function Globe({
             clearTimeout(fadeIn)
             observer.disconnect()
             document.removeEventListener("visibilitychange", onVisibilityChange)
-            motionQuery.removeEventListener("change", onMotionChange)
             window.removeEventListener("resize", onResize)
             globe.destroy()
         }
