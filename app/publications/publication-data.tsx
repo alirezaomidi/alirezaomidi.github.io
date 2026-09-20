@@ -30,6 +30,23 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    title: "METALICA: METAdynamics and repLICA exchange for enhanced diffusion sampling",
+    slug: "metalica-metadynamics-and-replica-exchange-for-enhanced-diffusion-sampling",
+    year: 2026,
+    authors: "Alireza Omidi, Jiajun He, Jörg Gsponer, Saifuddin Syed",
+    journal: "arXiv",
+    url: "https://arxiv.org/abs/2609.17823",
+    doi: "10.48550/arXiv.2609.17823",
+    abstract: "Many proteins function through transitions between conformational states, yet rare states are rarely sampled by diffusion models trained on an equilibrium ensemble, demanding better sampling methods. We introduce METALICA, which implements Metadynamics on a pretrained diffusion model via Replica Exchange. It accumulates a bias potential along a Collective Variable, repels new samples from previous ones through biased sampling, and reweights samples onto the unbiased distribution. METALICA holds one replica per diffusion level, forming a Markov Chain that evolves through inter-replica communication and is refined in place as the bias grows. METALICA is the dual of sequential control, in which Sequential Monte Carlo parallelizes the sampler over a batch of particles. Parallelism over the levels of the diffusion-time schedule instead allows METALICA to generate samples from long chains, essential for the discovery of rare events, with accuracy set by run length rather than by the memory available. We validate on a bimodal target with known free energies, then apply METALICA to the unfolding of a protein. At a budget for which sequential control yields no unfolded structure, METALICA populates the basin and resolves a second free energy minimum.",
+    figure: {
+      url: "/photos/publications/metalica-2026-fig1.jpg",
+      thumb: "/photos/publications/thumbs/metalica-2026-fig1.jpg",
+      isLocal: true,
+      alt: "Left: the error in the estimated free energy difference against cumulative samples, where METALICA converges orders of magnitude earlier than MetaDiff and unbiased sampling. Right: the free energy surface each method reconstructs at 100,000 samples against the true surface, with only METALICA recovering the second basin."
+    },
+    selected: true
+  },
+  {
     title: "De Novo Design of Protein Switches with Diffusion-Based Ensemble Sampling",
     slug: "de-novo-design-of-protein-switches-with-diffusion-based-ensemble-sampling",
     year: 2026,
